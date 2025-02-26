@@ -53,28 +53,59 @@
         <div class="container">
             <h2 data-i18n="education.title">Education</h2>
             <div class="timeline">
-                <div class="timeline-item" onclick="showModal('education-1', {
-                    title: 'education_details.txt',
-                    content: `> University: Example University
-> Major: Computer Science
-> Degree: Bachelor of Science
-> Period: 2020 - 2024
-> GPA: 3.9/4.0
+                <!-- 大阪大学 -->
+                <div class="timeline-item" onclick="showModal('education-osaka', {
+                    title: 'education_osaka.txt',
+                    content: `// 待添加详细内容`
+                })">
+                    <h3 data-i18n="education.osaka.name">Osaka University</h3>
+                    <p><span data-i18n="education.osaka.major">Economics</span> • <span data-i18n="education.osaka.degree">Master's Degree</span></p>
+                    <p data-i18n="education.osaka.period">2024.4 - 2026.3 (Expected)</p>
+                </div>
+
+                <!-- 中山大学 -->
+                <div class="timeline-item" onclick="showModal('education-sysu', {
+                    title: 'education_sysu.txt',
+                    content: `// Education Details: Sun Yat-sen University
+
+> Major: English Language & Literature
+> Minor: German Language
+> Period: 2019.8 - 2023.6
+> Degree: Bachelor of Arts
+
+// Academic Background
+* Majored in English with a minor in German
+* Extensive coursework in humanities and social sciences:
+  - History
+  - Linguistics
+  - Literature
+  - Sociology
+* Additional studies in economics and business:
+  - Microeconomics
+  - Macroeconomics
+  - Finance
+  - Accounting
+
+// Technical Interests
+* Self-taught Python programming
+  - Developed attendance tracking systems
+  - Created automation tools
+* Game Development
+  - Experimented with RPG Maker
+  - Designed indie game concepts
+* Software Development
+  - Built various small applications
+  - Explored programming fundamentals
 
 // Key Achievements
-* Dean's List: 2020-2024
-* Research Assistant: AI Lab
-* Teaching Assistant: Data Structures
-
-// Key Courses
-* Advanced Algorithms
-* Machine Learning
-* Computer Graphics
-* Database Systems`
+* Successfully balanced diverse academic interests
+* Developed strong foundation in both humanities and technical fields
+* Independently pursued programming and development skills
+* Prepared solid academic base for graduate studies in Economics`
                 })">
-                    <h3>School Name</h3>
-                    <p><span data-i18n="education.major">Major</span> • <span data-i18n="education.degree">Degree</span></p>
-                    <p data-i18n="education.period">2020 - 2024</p>
+                    <h3 data-i18n="education.sysu.name">Sun Yat-sen University</h3>
+                    <p><span data-i18n="education.sysu.major">English Language & Literature</span> • <span data-i18n="education.sysu.degree">Bachelor's Degree</span></p>
+                    <p data-i18n="education.sysu.period">2019.8 - 2023.6</p>
                 </div>
             </div>
         </div>

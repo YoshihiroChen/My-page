@@ -18,7 +18,19 @@ const translations = {
             title: "Education",
             degree: "Degree",
             major: "Major",
-            period: "Period"
+            period: "Period",
+            osaka: {
+                name: "Osaka University",
+                major: "Economics",
+                degree: "Master's Degree",
+                period: "2024.4 - 2026.3 (Expected)"
+            },
+            sysu: {
+                name: "Sun Yat-sen University",
+                major: "English Language & Literature",
+                degree: "Bachelor's Degree",
+                period: "2019.8 - 2023.6"
+            }
         },
         projects: {
             title: "Projects",
@@ -76,7 +88,55 @@ const translations = {
             title: "教育经历",
             degree: "学位",
             major: "专业",
-            period: "时间"
+            period: "时间",
+            osaka: {
+                name: "大阪大学",
+                major: "经济学",
+                degree: "硕士学位",
+                period: "2024.4 - 2026.3（预定）"
+            },
+            sysu: {
+                name: "中山大学",
+                major: "英语语言文学",
+                degree: "学士学位",
+                period: "2019.8 - 2023.6",
+                content: `// 教育经历详情：中山大学
+
+> 主修：英语语言文学
+> 辅修：德语
+> 时间：2019.8 - 2023.6
+> 学位：文学学士
+
+// 学术背景
+* 主修英语并辅修德语
+* 广泛涉猎人文社科领域课程：
+  - 历史学
+  - 语言学
+  - 文学
+  - 社会学
+* 额外修读经济商业课程：
+  - 微观经济学
+  - 宏观经济学
+  - 金融学
+  - 会计学
+
+// 技术兴趣
+* 自学 Python 编程
+  - 开发打卡系统
+  - 创建自动化工具
+* 游戏开发
+  - 尝试使用 RPG Maker
+  - 设计独立游戏概念
+* 软件开发
+  - 构建各类小型应用
+  - 探索编程基础
+
+// 主要成就
+* 成功平衡多元学术兴趣
+* 在人文与技术领域都建立了扎实基础
+* 独立追求编程和开发技能
+* 为经济学研究生学习奠定学术基础`
+            }
         },
         projects: {
             title: "项目经历",
@@ -134,7 +194,55 @@ const translations = {
             title: "学歴",
             degree: "学位",
             major: "専攻",
-            period: "期間"
+            period: "期間",
+            osaka: {
+                name: "大阪大学",
+                major: "経済学",
+                degree: "修士号",
+                period: "2024.4 - 2026.3（予定）"
+            },
+            sysu: {
+                name: "中山大学",
+                major: "英語言語文学",
+                degree: "学士号",
+                period: "2019.8 - 2023.6",
+                content: `// 教育詳細：中山大学
+
+> 専攻：英語言語文学
+> 副専攻：ドイツ語
+> 期間：2019.8 - 2023.6
+> 学位：文学学士
+
+// 学術背景
+* 英語専攻とドイツ語副専攻
+* 人文社会科学分野の幅広い学習：
+  - 歴史学
+  - 言語学
+  - 文学
+  - 社会学
+* 経済・ビジネス関連の追加学習：
+  - ミクロ経済学
+  - マクロ経済学
+  - 金融学
+  - 会計学
+
+// 技術的関心
+* Python プログラミングの独学
+  - 出席管理システムの開発
+  - 自動化ツールの作成
+* ゲーム開発
+  - RPG Maker での実験
+  - インディーゲームのコンセプト設計
+* ソフトウェア開発
+  - 各種小規模アプリケーションの構築
+  - プログラミングの基礎探求
+
+// 主な成果
+* 多様な学術的興味のバランスを達成
+* 人文科学と技術分野の両方で強固な基盤を構築
+* プログラミングと開発スキルの自主的な追求
+* 経済学大学院進学への学術的基盤の確立`
+            }
         },
         projects: {
             title: "プロジェクト経験",
@@ -192,7 +300,55 @@ const translations = {
             title: "Ausbildung",
             degree: "Abschluss",
             major: "Studienfach",
-            period: "Zeitraum"
+            period: "Zeitraum",
+            osaka: {
+                name: "Universität Osaka",
+                major: "Wirtschaftswissenschaften",
+                degree: "Masterabschluss",
+                period: "2024.4 - 2026.3 (erwartet)"
+            },
+            sysu: {
+                name: "Sun Yat-sen Universität",
+                major: "Englische Sprache & Literatur",
+                degree: "Bachelorabschluss",
+                period: "2019.8 - 2023.6",
+                content: `// Bildungsdetails: Sun Yat-sen Universität
+
+> Hauptfach: Englische Sprache & Literatur
+> Nebenfach: Deutsch
+> Zeitraum: 2019.8 - 2023.6
+> Abschluss: Bachelor of Arts
+
+// Akademischer Hintergrund
+* Hauptfach Englisch mit Nebenfach Deutsch
+* Umfangreiche Kurse in Geistes- und Sozialwissenschaften:
+  - Geschichte
+  - Linguistik
+  - Literatur
+  - Soziologie
+* Zusätzliche Studien in Wirtschaft:
+  - Mikroökonomie
+  - Makroökonomie
+  - Finanzwesen
+  - Rechnungswesen
+
+// Technische Interessen
+* Selbststudium Python-Programmierung
+  - Entwicklung von Anwesenheitssystemen
+  - Erstellung von Automatisierungstools
+* Spieleentwicklung
+  - Experimente mit RPG Maker
+  - Design von Indie-Spielkonzepten
+* Softwareentwicklung
+  - Entwicklung verschiedener kleiner Anwendungen
+  - Erforschung von Programmiergrundlagen
+
+// Hauptleistungen
+* Erfolgreiche Balance verschiedener akademischer Interessen
+* Starke Grundlagen in Geisteswissenschaften und Technik
+* Eigenständige Verfolgung von Programmier- und Entwicklungsfähigkeiten
+* Solide akademische Basis für das Wirtschaftsstudium`
+            }
         },
         projects: {
             title: "Projekte",

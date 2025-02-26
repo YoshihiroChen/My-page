@@ -22,14 +22,18 @@ function showModal(id, data) {
     modalTitle.textContent = data.title;
     modal.style.display = 'block';
     
-    // 使用打字机效果
-    typeWriter(data.content, modalText);
-    
-    // 翻译模态框内容
+    // 获取当前语言的内容
+    let content = data.content;
     if (window.currentLang && window.currentLang !== 'en') {
-        const translatedContent = translateModalContent(data.content, window.currentLang);
-        data.content = translatedContent;
+        // 检查是否有对应语言的内容
+        const translation = translations[window.currentLang]?.education?.sysu?.content;
+        if (translation && id === 'education-sysu') {
+            content = translation;
+        }
     }
+    
+    // 使用打字机效果
+    typeWriter(content, modalText);
 }
 
 // 主题切换功能
