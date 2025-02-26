@@ -1,0 +1,642 @@
+:root {
+    --primary-color: #00ff00;    /* Matrix绿 */
+    --secondary-color: #0fe0b6;  /* 青色 */
+    --text-color: #e0e0e0;      /* 浅灰 */
+    --background-color: #0a0a0a; /* 近黑色 */
+    --terminal-bg: rgba(16, 16, 16, 0.3);  /* 更透明的背景 */
+    --code-color: #00ff00;
+    --error-color: #ff0033;
+    --warning-color: #ffcc00;
+    --success-color: #00ff00;
+    --grid-color: rgba(0, 255, 0, 0.05);
+    --text-shadow: 0 0 8px var(--primary-color);
+}
+
+body {
+    margin: 0;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Matrix rain effect */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.3;  /* 增加代码瀑布的可见度 */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+}
+
+.container::before {
+    display: none;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 5px 0;
+}
+
+.nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    text-shadow: var(--text-shadow);
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* 移除背景数学公式 */
+body::before {
+    display: none;  /* 移除背景的数学符号 */
+}
+
+.section {
+    position: relative;
+    margin: 40px auto;
+    padding: 40px 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* 移除 section 的装饰性文字 */
+.section::before {
+    display: none;  /* 移除 '> executing_module...' */
+}
+
+.section::after {
+    display: none;  /* 移除 '[OK]' 和页码 */
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    text-shadow: var(--text-shadow);
+    margin: 20px 0;
+}
+
+/* 移除 h2 后的装饰符号 */
+h2::after {
+    display: none;  /* 移除 '⊢' 符号 */
+}
+
+.math-style {
+    margin: 30px 0;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    margin: 30px 0;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.project-card {
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 移除 skill-category 的装饰性文字 */
+.skill-category::before {
+    display: none;  /* 移除 '$ cat skills.log' */
+}
+
+/* 简化 skill-category 标题样式 */
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: none;  /* 移除下划线 */
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.skill-subcategory {
+    margin-bottom: 20px;
+}
+
+.skill-subcategory h4 {
+    color: var(--secondary-color);
+    margin: 10px 0;
+}
+
+.skill-bar {
+    background: rgba(0, 255, 0, 0.1);
+    width: 85%;
+    height: 20px;
+    margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.skill-bar span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    text-shadow: var(--text-shadow);
+    z-index: 1;
+    font-size: 0.9em;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(0, 255, 0, 0.3) 0%,
+        rgba(15, 224, 182, 0.3) 100%);
+    width: 0;
+    box-shadow: 0 0 20px var(--primary-color);
+    transition: width 1s ease-in-out;
+}
+
+.contact-info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    text-shadow: var(--text-shadow);
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* 数学公式改为代码风格 */
+.theorem, .proof, .equation {
+    margin: 15px 0;
+    font-size: 1.1em;
+    text-shadow: var(--text-shadow);
+}
+
+.qed {
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* 增强文字可读性 */
+* {
+    text-shadow: var(--text-shadow);
+}
+
+/* 添加悬停效果 */
+.section > * {
+    transition: all 0.3s;
+}
+
+.section > *:hover {
+    text-shadow: 0 0 15px var(--secondary-color);
+    transform: scale(1.02);
+}
+
+/* 语言选择器样式 */
+.language-selector {
+    position: relative;
+    margin-right: 20px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px var(--secondary-color);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: flex;
+}
+
+.lang-dropdown a {
+    padding: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.lang-dropdown a:hover {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--secondary-color);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: rgba(10, 10, 10, 0.95);
+    margin: 50px auto;
+    max-width: 800px;
+    width: 90%;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    animation: modalSlideDown 0.3s ease-out;
+}
+
+@keyframes modalSlideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: var(--primary-color);
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--error-color);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    font-family: 'Fira Code', monospace;
+}
+
+.terminal-text {
+    color: var(--text-color);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.terminal-text::before {
+    content: "";
+    animation: cursor 1s infinite;
+}
+
+.modal-footer {
+    padding: 15px;
+    border-top: 1px solid var(--primary-color);
+}
+
+.terminal-prompt {
+    color: var(--primary-color);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 让可点击元素显示鼠标手型 */
+.timeline-item,
+.project-card,
+.skill-bar {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.timeline-item:hover,
+.project-card:hover,
+.skill-bar:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 主题切换按钮样式 */
+.theme-switcher {
+    margin-right: 20px;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* 数理主题变量 */
+[data-theme="math"] {
+    --primary-color: #234E70;    /* 深蓝色 */
+    --secondary-color: #FBB13C;  /* 金色 */
+    --text-color: #2C3E50;      /* 深灰蓝 */
+    --background-color: #F4F5F7; /* 米白色 */
+    --modal-bg: rgba(255, 255, 255, 0.95);
+    --theorem-bg: rgba(255, 255, 255, 0.95);
+    --skill-text-color: #234E70; /* 技能文字颜色 */
+    --skill-fill-color: rgba(35, 78, 112, 0.9); /* 技能条填充颜色 */
+}
+
+/* 数理主题样式覆盖 */
+[data-theme="math"] body {
+    background: var(--background-color);
+    font-family: 'Computer Modern', serif;
+}
+
+[data-theme="math"] .modal-content {
+    background: var(--modal-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="math"] .modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+}
+
+[data-theme="math"] .modal-title {
+    font-style: italic;
+    color: white;
+}
+
+[data-theme="math"] .terminal-text {
+    font-family: 'Computer Modern', serif;
+    color: var(--text-color);
+}
+
+[data-theme="math"] .section {
+    background: var(--theorem-bg);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="math"] .matrix-bg {
+    display: none;
+}
+
+[data-theme="math"] .skill-bar {
+    background: rgba(35, 78, 112, 0.1);
+    border: 1px solid var(--primary-color);
+}
+
+[data-theme="math"] .skill-fill {
+    background: linear-gradient(90deg, 
+        rgba(35, 78, 112, 0.8) 0%,
+        rgba(35, 78, 112, 0.9) 100%);
+}
+
+[data-theme="math"] .skill-bar span {
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    mix-blend-mode: difference;  /* 确保文字在任何背景上都清晰可见 */
+}
+
+/* 主题图标显示控制 */
+.math-icon {
+    display: none;
+}
+
+[data-theme="math"] .hacker-icon {
+    display: none;
+}
+
+[data-theme="math"] .math-icon {
+    display: inline;
+}
+
+/* 调整数理主题下的其他文字颜色 */
+[data-theme="math"] h1,
+[data-theme="math"] h2,
+[data-theme="math"] h3,
+[data-theme="math"] h4 {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+[data-theme="math"] .section {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+/* 调整数理主题下的语言选择器样式 */
+[data-theme="math"] .lang-dropdown {
+    background: var(--theorem-bg);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="math"] .lang-dropdown a {
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 12px 15px;
+}
+
+[data-theme="math"] .lang-dropdown a:hover {
+    background: rgba(35, 78, 112, 0.1);
+    color: var(--secondary-color);
+}
+
+/* 调整数理主题下的语言按钮样式 */
+[data-theme="math"] .lang-btn {
+    color: var(--primary-color);
+    text-shadow: none;
+    font-weight: bold;
+}
+
+[data-theme="math"] .lang-btn:hover {
+    color: var(--secondary-color);
+    text-shadow: none;
+}
+
+/* 调整导航栏在数理主题下的样式 */
+[data-theme="math"] nav {
+    background: var(--theorem-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="math"] nav a {
+    text-shadow: none;
+}
+
+/* 针对数理主题的特殊调整 */
+[data-theme="math"] .skill-bar {
+    width: 85%;  /* 保持一致的宽度 */
+}
+
+[data-theme="math"] .skill-bar span {
+    font-size: 0.9em;
+    letter-spacing: -0.2px;  /* 稍微减小字母间距 */
+}
+
+/* 针对特别长的德语文本的特殊处理 */
+[data-theme="math"] .skill-bar[data-level="90"] span,  /* 概率统计 */
+[data-theme="math"] .skill-bar[data-level="95"] span { /* 微积分 */
+    font-size: 0.85em;  /* 进一步减小这些特定技能的字体大小 */
+    letter-spacing: -0.3px;
+}
+
+/* 调整数理主题下的模态框关闭按钮样式 */
+[data-theme="math"] .modal-close {
+    color: white;  /* 改为白色以与深色标题栏对比 */
+    font-size: 28px;  /* 稍微加大一点 */
+    opacity: 0.8;  /* 添加透明度使其看起来更柔和 */
+    text-shadow: none;
+}
+
+[data-theme="math"] .modal-close:hover {
+    color: var(--secondary-color);  /* 悬停时改为金色 */
+    opacity: 1;
+    transform: scale(1.1);
+    text-shadow: 0 0 8px var(--secondary-color);
+}
+
+/* 语言标签样式 */
+.lang-label {
+    margin-right: 8px;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+/* 数理主题下的语言标签样式 */
+[data-theme="math"] .lang-label {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+/* 调整语言选择器布局 */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+} 

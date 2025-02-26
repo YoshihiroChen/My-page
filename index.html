@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 | Mathematical Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/latinmodernmath@1.0.0/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="matrix-bg" class="matrix-bg"></canvas>
+    <nav>
+        <div class="nav-content">
+            <div class="language-selector">
+                <span class="lang-label" data-i18n="language.label">Language</span>
+                <button class="lang-btn">🌐</button>
+                <div class="lang-dropdown">
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="zh">中文</a>
+                    <a href="#" data-lang="ja">日本語</a>
+                    <a href="#" data-lang="de">Deutsch</a>
+                </div>
+            </div>
+            <div class="theme-switcher">
+                <button class="theme-btn" title="Switch Theme">
+                    <span class="hacker-icon">⌨️</span>
+                    <span class="math-icon">📐</span>
+                </button>
+            </div>
+            <a href="#home" data-i18n="nav.home">Home</a>
+            <a href="#education" data-i18n="nav.education">Education</a>
+            <a href="#projects" data-i18n="nav.projects">Projects</a>
+            <a href="#skills" data-i18n="nav.skills">Skills</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="container">
+            <h1 data-i18n="home.title">> whoami</h1>
+            <div class="math-style">
+                <p class="theorem" data-i18n="home.intro">// Initialize personal configuration</p>
+                <p class="proof" data-i18n="home.loading">$ loading personal_data.json</p>
+                <p class="equation" data-i18n="home.equation">system.init(innovation + expertise + passion);</p>
+                <p class="proof" data-i18n="home.status">$ status: online</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 data-i18n="education.title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item" onclick="showModal('education-1', {
+                    title: 'education_details.txt',
+                    content: `> University: Example University
+> Major: Computer Science
+> Degree: Bachelor of Science
+> Period: 2020 - 2024
+> GPA: 3.9/4.0
+
+// Key Achievements
+* Dean's List: 2020-2024
+* Research Assistant: AI Lab
+* Teaching Assistant: Data Structures
+
+// Key Courses
+* Advanced Algorithms
+* Machine Learning
+* Computer Graphics
+* Database Systems`
+                })">
+                    <h3>School Name</h3>
+                    <p><span data-i18n="education.major">Major</span> • <span data-i18n="education.degree">Degree</span></p>
+                    <p data-i18n="education.period">2020 - 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 data-i18n="projects.title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" onclick="showModal('project-1', {
+                    title: 'project_details.md',
+                    content: `# AI-Powered Portfolio Website
+
+## Description
+* Interactive personal portfolio
+* Matrix-style animations
+* Multi-language support
+* Real-time skill visualization
+
+## Technologies
+* HTML5/CSS3
+* JavaScript
+* Canvas API
+* i18n
+
+## Key Features
+* Custom animation system
+* Language switching
+* Modal dialogs
+* Responsive design
+
+## Challenges Overcome
+* Performance optimization
+* Cross-browser compatibility
+* Animation timing
+* State management`
+                })">
+                    <h3>Project Name</h3>
+                    <p data-i18n="projects.description">Description</p>
+                    <div class="tech-stack">
+                        <span data-i18n="projects.technologies">Technologies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 data-i18n="skills.title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 data-i18n="skills.computer.title">Computer Skills</h3>
+                    <div class="skill-subcategory">
+                        <h4 data-i18n="skills.computer.frontend">Frontend Development</h4>
+                        <div class="skill-bar" data-level="85" onclick="showModal('html-css-js-skill', {
+                            title: 'frontend_skills.log',
+                            content: `// Frontend Development Skills
+> Skill Level: Advanced
+> Years of Experience: 3
+
+// Core Technologies
+* HTML5 & CSS3
+* JavaScript (ES6+)
+* React & Vue.js
+* Responsive Design
+
+// Recent Projects
+* Built interactive dashboards
+* Developed SPA applications
+* Created responsive layouts
+* Implemented animations
+
+// Tools & Frameworks
+* Webpack/Vite
+* SASS/LESS
+* TypeScript
+* Jest/Cypress`
+                        })">
+                            <div class="skill-fill"></div>
+                            <span>HTML/CSS/JavaScript</span>
+                        </div>
+                        <div class="skill-bar" data-level="80" onclick="showModal('react-skill', {
+                            title: 'react_skills.log',
+                            content: `// React Development
+> Skill Level: Advanced
+> Years of Experience: 2
+
+// Core Competencies
+* React Hooks
+* Redux/Context API
+* Next.js
+* React Native
+
+// Project Highlights
+* E-commerce platforms
+* Social media applications
+* Admin dashboards
+* Mobile apps
+
+// Best Practices
+* Component architecture
+* Performance optimization
+* State management
+* Testing strategies`
+                        })">
+                            <div class="skill-fill"></div>
+                            <span>React</span>
+                        </div>
+                    </div>
+                    <div class="skill-subcategory">
+                        <h4 data-i18n="skills.computer.backend">Backend Development</h4>
+                        <div class="skill-bar" data-level="90" onclick="showModal('python-skill', {
+                            title: 'python_skill.log',
+                            content: `// Python Development Experience
+> Skill Level: Advanced
+> Years of Experience: 5
+
+// Key Areas
+* Web Development with Django/Flask
+* Data Analysis with Pandas/NumPy
+* Machine Learning with TensorFlow/PyTorch
+* Automation and Scripting
+
+// Notable Projects
+* Implemented ML models for prediction
+* Created data processing pipelines
+* Developed web crawlers
+* Built REST APIs`
+                        })">
+                            <div class="skill-fill"></div>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-bar" data-level="85">
+                            <div class="skill-fill"></div>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-subcategory">
+                        <h4 data-i18n="skills.computer.game">Game Development</h4>
+                        <div class="skill-bar" data-level="75">
+                            <div class="skill-fill"></div>
+                            <span>Unity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-i18n="skills.math.title">Mathematical Skills</h3>
+                    <div class="skill-bar" data-level="95" onclick="showModal('calculus-skill', {
+                        title: 'math_calculus.tex',
+                        content: `// Advanced Calculus Proficiency
+> Expertise Level: Expert
+> Areas of Focus: Analysis & Applications
+
+// Key Topics
+* Multivariable Calculus
+* Complex Analysis
+* Differential Equations
+* Vector Calculus
+
+// Applications
+* Optimization Problems
+* Physical Modeling
+* Signal Processing
+* Numerical Methods
+
+// Research Experience
+* Mathematical Modeling
+* Numerical Analysis
+* Applied Mathematics
+* Theoretical Research`
+                    })">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.math.calculus">Calculus</span>
+                    </div>
+                    <div class="skill-bar" data-level="90">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.math.probability">Probability & Statistics</span>
+                    </div>
+                    <div class="skill-bar" data-level="85">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.math.linear">Linear Algebra</span>
+                    </div>
+                    <div class="skill-bar" data-level="80">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.math.abstract">Abstract Algebra</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-i18n="skills.language.title">Language Skills</h3>
+                    <div class="skill-bar" data-level="100">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.language.chinese">Chinese</span>
+                    </div>
+                    <div class="skill-bar" data-level="90" onclick="showModal('english-skill', {
+                        title: 'language_english.log',
+                        content: `// English Language Proficiency
+> Level: C2 (Proficient)
+> IELTS Score: 8.0
+
+// Skills Breakdown
+* Speaking: Advanced
+* Writing: Professional
+* Reading: Native-like
+* Listening: Excellent
+
+// Certifications
+* IELTS Academic
+* TOEFL iBT
+* Cambridge CPE
+
+// Professional Experience
+* Technical Writing
+* Academic Papers
+* Business Communication
+* International Conferences`
+                    })">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.language.english">English</span>
+                    </div>
+                    <div class="skill-bar" data-level="80">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.language.japanese">Japanese</span>
+                    </div>
+                    <div class="skill-bar" data-level="70">
+                        <div class="skill-fill"></div>
+                        <span data-i18n="skills.language.german">German</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-i18n="contact.title">Contact</h2>
+            <div class="contact-info">
+                <p>📧 <span data-i18n="contact.email">Email</span>: email@example.com</p>
+                <p>📱 <span data-i18n="contact.phone">Phone</span>: +1234567890</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">$ cat <span id="modal-title">details.txt</span></h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terminal-text" id="modal-text"></div>
+            </div>
+            <div class="modal-footer">
+                <span class="terminal-prompt">$ _</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="languages.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
