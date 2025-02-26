@@ -466,8 +466,65 @@ h2::after {
 
 /* 数理主题样式覆盖 */
 [data-theme="math"] body {
-    background: var(--background-color);
+    background: var(--background-color) !important; /* 使用 !important 确保覆盖 */
+    background-image: none !important; /* 移除之前的网格背景 */
     font-family: 'Computer Modern', serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+[data-theme="math"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(35, 78, 112, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 78, 112, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+    opacity: 0.5;
+}
+
+[data-theme="math"] .math-decoration {
+    position: fixed;
+    font-family: 'Computer Modern', serif;
+    color: rgba(35, 78, 112, 0.1);
+    pointer-events: none;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(10px, 10px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+[data-theme="math"] body::after {
+    content: '∫ ∑ ∏ ∂ √ ∞ ∫ dx';
+    position: fixed;
+    font-size: 24px;
+    color: rgba(35, 78, 112, 0.1);
+    white-space: nowrap;
+    animation: mathFloat 30s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes mathFloat {
+    0% {
+        transform: translateX(-100%) translateY(100vh) rotate(-30deg);
+    }
+    100% {
+        transform: translateX(100vw) translateY(-100vh) rotate(30deg);
+    }
 }
 
 [data-theme="math"] .modal-content {
@@ -639,4 +696,70 @@ h2::after {
     display: flex;
     align-items: center;
     margin-right: 20px;
+}
+
+/* 数学装饰元素容器 */
+.math-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    display: none;  /* 默认隐藏 */
+}
+
+/* 单个数学装饰元素 */
+.math-decoration {
+    position: absolute;
+    font-size: 3rem;  /* 增大字体大小 */
+    color: rgba(35, 78, 112, 0.15);
+    animation: fadeInOut 8s infinite;
+    opacity: 0.3;  /* 设置初始透明度 */
+}
+
+/* 在数理主题下显示装饰 */
+[data-theme="math"] .math-decorations {
+    display: block;  /* 在数理主题下显示 */
+}
+
+/* 修改动画效果 */
+@keyframes fadeInOut {
+    0% { 
+        opacity: 0.1; 
+        transform: scale(0.8) rotate(-10deg) translateY(0px);
+    }
+    50% { 
+        opacity: 0.3; 
+        transform: scale(1.2) rotate(10deg) translateY(-20px);
+    }
+    100% { 
+        opacity: 0.1; 
+        transform: scale(0.8) rotate(-10deg) translateY(0px);
+    }
+}
+
+/* 给每个装饰元素添加不同的动画延迟 */
+.math-decoration:nth-child(1) { animation-delay: 0s; }
+.math-decoration:nth-child(2) { animation-delay: 1s; }
+.math-decoration:nth-child(3) { animation-delay: 2s; }
+.math-decoration:nth-child(4) { animation-delay: 3s; }
+.math-decoration:nth-child(5) { animation-delay: 4s; }
+.math-decoration:nth-child(6) { animation-delay: 5s; }
+
+/* 调整背景网格 */
+[data-theme="math"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(rgba(35, 78, 112, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 78, 112, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+    opacity: 0.5;
 } 
